@@ -142,14 +142,14 @@ public class ChallangeDaoImplTest {
 		//when
 		challangeDao.acceptChallange(challange);		
 	}
-	@Ignore
+
 	@Transactional
 	@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
 	@Test
 	public void shouldReturnProfilesOfAvailableOpponents(){
 		//given
 		UserEntity userFrom = userDao.findOne(1L);
-		List<ProfileTo> challangesWithRequiredLevel = challangeDao.challangesWithRequiredLevel(UserMapper.map(userFrom));	
+		List<ProfileTo> challangesWithRequiredLevel = challangeDao.challangesWithRequiredLevelAndNumberOfPlays(UserMapper.map(userFrom));	
 		//that
 		assertEquals(3, challangesWithRequiredLevel.size());
 	}
@@ -182,7 +182,7 @@ public class ChallangeDaoImplTest {
 		// then
 		assertEquals(ChallangeStatus.CANCELLED, cancelledChallange.getState());
 	}
-	@Ignore
+
 	@Test
 	@Transactional
 	@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)

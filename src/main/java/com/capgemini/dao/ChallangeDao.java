@@ -19,7 +19,7 @@ public interface ChallangeDao extends Dao<ChallangeEntity, Long> {
 
 	ChallangeTo cancellChallange(ChallangeTo challange) throws ChallangeValidationException;
 
-	List<ProfileTo> challangesWithRequiredLevel(UserTo userFrom);
+	List<ProfileTo> challangesWithRequiredLevelAndNumberOfPlays(UserTo userFrom);
 
 	List<UserTo> usersWithSimilarNumberOfGames(UserTo userTo, UserTo userFrom);
 	
